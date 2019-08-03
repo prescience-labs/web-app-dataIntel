@@ -1,0 +1,15 @@
+{
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#33326b"
+  },
+  "cSpell.words": ["Checkboxes", "Formik", "Helveltica", "aled"],
+  "files.autoSave": "onFocusChange",
+  "editor.formatOnSave": true,
+  "javascript.preferences.quoteStyle": "single",
+  "files.eol": "\n",
+  "prettier.eslintIntegration": true,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+  "prettier.jsxBracketSameLine": false,
+  "prettier.semi": true
+}
