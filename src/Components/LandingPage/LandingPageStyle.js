@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/styles';
 
 export const landingPageStyle = makeStyles({
   dialogStyle: {
-    height: '20rem',
+    height: 'auto',
   },
   hederStyle: {
     display: 'flex',
