@@ -84,7 +84,12 @@ function Plan({ name, cost, perksList }) {
   );
 }
 
-function LandingPageDisplay({ openDialog, handleClickOpen, handleClose }) {
+function LandingPageDisplay({
+  openDialog,
+  handleClickOpen,
+  handleClose,
+  handleSingIng,
+}) {
   const { dialogStyle, hederStyle } = landingPageStyle();
 
   return (
@@ -112,7 +117,7 @@ function LandingPageDisplay({ openDialog, handleClickOpen, handleClose }) {
         aria-describedby="alert-dialog-slide-description"
       >
         <DialogContent>
-          <Button onClick={handleClose}>Sing In With Gmail</Button>
+          <Button onClick={handleSingIng}>Sing In With Gmail</Button>
         </DialogContent>
       </Dialog>
     </div>
