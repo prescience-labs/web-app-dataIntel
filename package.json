@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.3.1",
+    "@material-ui/icons": "^4.2.1",
     "@material-ui/styles": "^4.3.0",
     "@types/jest": "24.0.16",
     "@types/node": "12.6.9",
@@ -14,7 +15,9 @@
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
-    "typescript": "3.5.3"
+    "recharts": "^1.6.2",
+    "typescript": "3.5.3",
+    "use-react-router": "^1.0.7"
   },
   "scripts": {
     "start": "react-scripts start",
