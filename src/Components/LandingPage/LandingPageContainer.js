@@ -16,7 +16,7 @@ function LandingPageContainer() {
 
   function handleSingIng() {
     setOpenDialog(false);
-    history.push('/inner_app');
+    history.push('/overview');
   }
 
   return (

@@ -7,7 +7,7 @@ import InnerContainer from '../../Components/InnerContainer';
 const Routs = withRouter(({ location }) => (
   <Switch location={location}>
     <Route exact path="/" component={LandingPage} />
-    <Route path="/inner_app" component={InnerContainer} />
+    <Route path="/overview" component={InnerContainer} />
   </Switch>
 ));
 
