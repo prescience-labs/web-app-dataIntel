@@ -27,7 +27,12 @@ const StyledMenuItem = withStyles(theme => ({
   },
 }))(MenuItem);
 
-function InnerHeaderDisplay({ handleClose, handleMenu, anchorEl }) {
+function InnerHeaderDisplay({
+  handleClose,
+  handleMenu,
+  anchorEl,
+  handleLogOut,
+}) {
   const { typographyStyle } = innerHeaderStyle();
 
   return (
@@ -71,7 +76,7 @@ function InnerHeaderDisplay({ handleClose, handleMenu, anchorEl }) {
               </ListItemIcon>
               <ListItemText primary="Account Settings" />
             </StyledMenuItem>
-            <StyledMenuItem onClick={handleClose}>
+            <StyledMenuItem onClick={handleLogOut}>
               <ListItemIcon>
                 <ExitToApp />
               </ListItemIcon>

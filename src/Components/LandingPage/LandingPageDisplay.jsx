@@ -90,7 +90,7 @@ function LandingPageDisplay({
   handleClose,
   handleSingIng,
 }) {
-  const { dialogStyle, hederStyle } = landingPageStyle();
+  const { dialogStyle, hederStyle, dialogContentStyle } = landingPageStyle();
 
   return (
     <div>
@@ -116,7 +116,7 @@ function LandingPageDisplay({
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogContent>
+        <DialogContent className={dialogContentStyle}>
           <Button onClick={handleSingIng}>Sing In With Gmail</Button>
         </DialogContent>
       </Dialog>

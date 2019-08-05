@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     maxWidth: 360,
     backgroundColor: theme.palette.primary,
-    margin: theme.spacing(10, 20),
+    margin: theme.spacing(2, 20),
   },
 }));
 
