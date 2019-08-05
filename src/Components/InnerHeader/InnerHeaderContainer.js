@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import InnerHeaderDisplay from './InnerHeaderDisplay';
 
 function InnerHeaderContainer() {
-  return <InnerHeaderDisplay />;
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  function handleMenu(event) {
+    setAnchorEl(event.currentTarget);
+  }
+
+  function handleClose() {
+    setAnchorEl(null);
+  }
+  return (
+    <InnerHeaderDisplay
+      anchorEl={anchorEl}
+      handleMenu={handleMenu}
+      handleClose={handleClose}
+    />
+  );
 }
 
 export default InnerHeaderContainer;
