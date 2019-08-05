@@ -8,6 +8,7 @@ import Box from '@material-ui/core/Box';
 
 import InnerHeader from '../InnerHeader';
 import Overview from '../Overview';
+import Insights from '../Insights';
 
 import { innerContainerStyle } from './InnerContainerStyle';
 
@@ -65,7 +66,7 @@ function InnerContainerDisplay() {
             <Overview />
           </TabPanel>
           <TabPanel value={value} index={1}>
-            Idiota
+            <Insights />
           </TabPanel>
         </TabPanel>
       </TabPanel>

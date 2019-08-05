@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/styles';
 
-export const overviewStyle = makeStyles({
+export const insightStyle = makeStyles({
   rootStyle: {},
 });
