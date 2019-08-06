@@ -56,7 +56,7 @@ const data = [
 
 function Chart() {
   return (
-    <BarChart width={730} height={250} data={data}>
+    <BarChart width={730} height={250} data={data} style={{ margin: '3rem' }}>
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="name" />
       <YAxis />

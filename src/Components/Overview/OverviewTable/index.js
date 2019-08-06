@@ -9,8 +9,8 @@ import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '100%',
-    marginTop: theme.spacing(3),
+    width: '95%',
+    margin: theme.spacing(5),
     overflowX: 'auto',
   },
   table: {

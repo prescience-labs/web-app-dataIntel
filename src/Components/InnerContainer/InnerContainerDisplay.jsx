@@ -24,7 +24,7 @@ function TabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      <Box p={3}>{children}</Box>
+      <Box p={0}>{children}</Box>
     </Typography>
   );
 }
@@ -46,7 +46,7 @@ function InnerContainerDisplay() {
   const { rootStyle, tabsStyle } = innerContainerStyle();
 
   return (
-    <div>
+    <>
       <InnerHeader />
       <TabPanel>
         <TabPanel>
@@ -70,7 +70,7 @@ function InnerContainerDisplay() {
           </TabPanel>
         </TabPanel>
       </TabPanel>
-    </div>
+    </>
   );
 }
 
