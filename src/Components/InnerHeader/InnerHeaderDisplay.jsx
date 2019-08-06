@@ -33,6 +33,7 @@ function InnerHeaderDisplay({
   handleMenu,
   anchorEl,
   handleLogOut,
+  isFeedBack,
 }) {
   const { typographyStyle } = innerHeaderStyle();
 
@@ -47,46 +48,48 @@ function InnerHeaderDisplay({
           <Typography variant="h6" className={typographyStyle}>
             DataIntel
           </Typography>
-          <div>
-            <IconButton
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleMenu}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              elevation={0}
-              anchorEl={anchorEl}
-              open={Boolean(anchorEl)}
-              onClose={handleClose}
-              keepMounted
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'center',
-              }}
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'center',
-              }}
-            >
-              <StyledMenuItem onClick={handleClose}>
-                <ListItemIcon>
-                  <Settings />
-                </ListItemIcon>
-                <ListItemText primary="Account Settings" />
-              </StyledMenuItem>
-              <StyledMenuItem onClick={handleLogOut}>
-                <ListItemIcon>
-                  <ExitToApp />
-                </ListItemIcon>
-                <ListItemText primary="Logout" />
-              </StyledMenuItem>
-            </Menu>
-          </div>
+          {!isFeedBack && (
+            <div>
+              <IconButton
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                elevation={0}
+                anchorEl={anchorEl}
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+                keepMounted
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'center',
+                }}
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'center',
+                }}
+              >
+                <StyledMenuItem onClick={handleClose}>
+                  <ListItemIcon>
+                    <Settings />
+                  </ListItemIcon>
+                  <ListItemText primary="Account Settings" />
+                </StyledMenuItem>
+                <StyledMenuItem onClick={handleLogOut}>
+                  <ListItemIcon>
+                    <ExitToApp />
+                  </ListItemIcon>
+                  <ListItemText primary="Logout" />
+                </StyledMenuItem>
+              </Menu>
+            </div>
+          )}
         </Toolbar>
       </AppBar>
     </>

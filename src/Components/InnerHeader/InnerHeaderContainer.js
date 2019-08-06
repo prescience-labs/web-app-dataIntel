@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import useReactRouter from 'use-react-router';
 import InnerHeaderDisplay from './InnerHeaderDisplay';
 
-function InnerHeaderContainer() {
+function InnerHeaderContainer({ isFeedBack }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const { history } = useReactRouter();
 
@@ -25,6 +25,7 @@ function InnerHeaderContainer() {
       handleMenu={handleMenu}
       handleClose={handleClose}
       handleLogOut={handleLogOut}
+      isFeedBack={isFeedBack}
     />
   );
 }

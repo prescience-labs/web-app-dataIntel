@@ -47,7 +47,7 @@ function InnerContainerDisplay() {
 
   return (
     <>
-      <InnerHeader />
+      <InnerHeader isFeedBack={false} />
       <TabPanel>
         <TabPanel>
           <AppBar position="static" className={rootStyle}>
