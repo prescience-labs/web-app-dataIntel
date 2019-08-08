@@ -8,7 +8,6 @@ const mockInsight = ['Boots are AWSOME', 'Best purchese ever'];
 const mockInsightBad = ['Boots are BADDDDD', 'Worst purchese ever'];
 
 function InsightsDisplay() {
-  const { root } = useStyles();
   return (
     <Grid container justify="center">
       <Grid item>
