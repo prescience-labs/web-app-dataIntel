@@ -1,4 +1,6 @@
 import React from 'react';
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
 import {
   BarChart,
   CartesianGrid,
@@ -54,17 +56,27 @@ const data = [
   },
 ];
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    marginTop: theme.spacing(5),
+    padding: theme.spacing(1),
+  },
+}));
+
 function Chart() {
+  const { root } = useStyles();
   return (
-    <BarChart width={730} height={250} data={data} style={{ margin: '3rem' }}>
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Tooltip />
-      <Legend />
-      <Bar dataKey="Good" fill="#06d5e8" />
-      <Bar dataKey="Bad" fill="#22f9c7" />
-    </BarChart>
+    <Paper className={root}>
+      <BarChart width={730} height={250} data={data} style={{ margin: '3rem' }}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Bar dataKey="Good" fill="#06d5e8" />
+        <Bar dataKey="Bad" fill="#22f9c7" />
+      </BarChart>
+    </Paper>
   );
 }
 

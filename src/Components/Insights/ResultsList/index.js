@@ -6,40 +6,41 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
+import Paper from '@material-ui/core/Paper';
+
 import SendIcon from '@material-ui/icons/Send';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '100%',
-    maxWidth: 360,
-    backgroundColor: theme.palette.primary,
-    margin: theme.spacing(2, 20),
+    margin: '2rem',
+    padding: '2rem',
   },
 }));
 
 function ResultsList({ title, results }) {
-  const { root, nested } = useStyles();
+  const { root } = useStyles();
 
   return (
-    <List
-      component="nav"
-      aria-labelledby="nested-list-subheader"
-      subheader={
-        <ListSubheader component="div" id="nested-list-subheader">
-          {title}
-        </ListSubheader>
-      }
-      className={root}
-    >
-      {results.map((result, index) => (
-        <ListItem key={index} className={nested}>
-          <ListItemIcon>
-            <SendIcon />
-          </ListItemIcon>
-          <ListItemText primary={result} />
-        </ListItem>
-      ))}
-    </List>
+    <Paper className={root}>
+      <List
+        component="nav"
+        aria-labelledby="nested-list-subheader"
+        subheader={
+          <ListSubheader component="div" id="nested-list-subheader">
+            {title}
+          </ListSubheader>
+        }
+      >
+        {results.map((result, index) => (
+          <ListItem key={index}>
+            <ListItemIcon>
+              <SendIcon />
+            </ListItemIcon>
+            <ListItemText primary={result} />
+          </ListItem>
+        ))}
+      </List>
+    </Paper>
   );
 }
 
