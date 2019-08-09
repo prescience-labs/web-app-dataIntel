@@ -11,7 +11,13 @@ export const appTheme = createMuiTheme({
   },
   typography: {
     useNextVariants: true,
-    fontFamily: ['Helvetica Neue, Montserrat'].join(','),
+    fontFamily: [
+      'HelveticaNeue-Light',
+      'Helvetica Neue Light',
+      'Helvetica Neue',
+      'Helvetica',
+    ].join(','),
+    fontWeight: '300',
   },
   overrides: {
     MuiButton: {
