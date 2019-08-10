@@ -7,6 +7,9 @@ export const feedbackStyle = makeStyles(theme => ({
   buttonStyle: {
     marginTop: '4rem',
   },
+  textAreaStyle: {
+    width: '90%',
+  },
   submittedStyle: {
     display: 'flex',
     height: '50vh',
@@ -17,5 +20,8 @@ export const feedbackStyle = makeStyles(theme => ({
   },
   thanksStyle: {
     marginBottom: '5rem',
+  },
+  h4ThanksStyle: {
+    marginBottom: '1rem',
   },
 }));

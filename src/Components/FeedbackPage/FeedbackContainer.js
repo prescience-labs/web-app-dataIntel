@@ -14,6 +14,7 @@ function FeedbackContainer() {
   const [ratingValue, setRatingValue] = useState(3);
   const [comment, setComment] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [openSnackBar, setOpenSnackBar] = useState(false);
 
   function handleSetComment(event) {
     setComment(event.target.value);
@@ -30,18 +31,21 @@ function FeedbackContainer() {
   }
 
   function handleSetSubmitted() {
-    createReview({
-      variables: {
-        data: {
-          text: comment,
-          source: 'App FE',
-          rating: parseFloat(ratingValue),
+    if (comment !== '') {
+      createReview({
+        variables: {
+          data: {
+            text: comment,
+            source: 'App FE',
+            rating: parseFloat(ratingValue),
+          },
         },
-      },
-    });
-
-    if (!error) {
-      setSubmitted(true);
+      });
+      if (!error) {
+        setSubmitted(true);
+      }
+    } else {
+      setOpenSnackBar(true);
     }
   }
 
@@ -56,6 +60,8 @@ function FeedbackContainer() {
       goToShopWeb={goToShopWeb}
       isSubmitted={submitted}
       handleSetSubmitted={handleSetSubmitted}
+      openSnackBar={openSnackBar}
+      setOpenSnackBar={setOpenSnackBar}
     />
   );
 }
