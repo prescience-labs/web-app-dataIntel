@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { useQuery } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/react-hooks';
 import useReactRouter from 'use-react-router';
 
-import { ALL_REVIEWS_QUERY } from '../../GraphQl/Queries';
+import { CREATE_REVIEW_MUTATION } from '../../GraphQl/Mutations';
 
 import FeedbackDisplay from './FeedbackDisplay';
 
 function FeedbackContainer() {
   const { match } = useReactRouter();
   const { id } = match.params;
-  const { data } = useQuery(ALL_REVIEWS_QUERY);
+  const [createReview, { error }] = useMutation(CREATE_REVIEW_MUTATION);
 
   const [ratingValue, setRatingValue] = useState(3);
   const [comment, setComment] = useState('');
@@ -30,10 +30,21 @@ function FeedbackContainer() {
   }
 
   function handleSetSubmitted() {
-    setSubmitted(true);
+    createReview({
+      variables: {
+        data: {
+          text: comment,
+          source: 'App FE',
+          rating: parseFloat(ratingValue),
+        },
+      },
+    });
+
+    if (!error) {
+      setSubmitted(true);
+    }
   }
 
-  console.log('data------- :', data);
   return (
     <FeedbackDisplay
       productId={id}
