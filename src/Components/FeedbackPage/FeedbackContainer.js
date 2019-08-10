@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
+import { useMutation } from '@apollo/react-hooks';
+import useReactRouter from 'use-react-router';
+
+import { CREATE_REVIEW_MUTATION } from '../../GraphQl/Mutations';
 
 import FeedbackDisplay from './FeedbackDisplay';
-import useReactRouter from 'use-react-router';
 
 function FeedbackContainer() {
   const { match } = useReactRouter();
   const { id } = match.params;
+  const [createReview, { error }] = useMutation(CREATE_REVIEW_MUTATION);
 
   const [ratingValue, setRatingValue] = useState(3);
   const [comment, setComment] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [openSnackBar, setOpenSnackBar] = useState(false);
 
   function handleSetComment(event) {
     setComment(event.target.value);
@@ -26,8 +31,22 @@ function FeedbackContainer() {
   }
 
   function handleSetSubmitted() {
-    console.log('set-------- :', submitted);
-    setSubmitted(true);
+    if (comment !== '') {
+      createReview({
+        variables: {
+          data: {
+            text: comment,
+            source: 'App FE',
+            rating: parseFloat(ratingValue),
+          },
+        },
+      });
+      if (!error) {
+        setSubmitted(true);
+      }
+    } else {
+      setOpenSnackBar(true);
+    }
   }
 
   return (
@@ -41,6 +60,8 @@ function FeedbackContainer() {
       goToShopWeb={goToShopWeb}
       isSubmitted={submitted}
       handleSetSubmitted={handleSetSubmitted}
+      openSnackBar={openSnackBar}
+      setOpenSnackBar={setOpenSnackBar}
     />
   );
 }
