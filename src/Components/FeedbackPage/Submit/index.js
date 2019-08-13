@@ -16,11 +16,16 @@ const Submit = ({
   handleSetSubmitted,
   openSnackBar,
 }) => {
-  const { buttonStyle, textAreaStyle } = feedbackStyle();
+  const { buttonStyle, textAreaStyle, fieldsetStyle } = feedbackStyle();
   return (
     <Grid container justify="center">
       <Grid item xs={12}>
-        <Box component="fieldset" mb={1} borderColor="transparent">
+        <Box
+          component="fieldset"
+          mb={1}
+          borderColor="transparent"
+          className={fieldsetStyle}
+        >
           <Typography component="h3">Rating</Typography>
           <Rating
             name="simple-controlled"

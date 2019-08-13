@@ -66,13 +66,12 @@ function FeedbackContainer() {
       handleSetRatingValue={handleSetRatingValue}
       comment={comment}
       handleSetComment={handleSetComment}
-      storeName={'Hyper Blouse'}
+      productInformation={reviewRequest}
       goToShopWeb={goToShopWeb}
       isSubmitted={submitted}
       handleSetSubmitted={handleSetSubmitted}
       openSnackBar={openSnackBar}
       setOpenSnackBar={setOpenSnackBar}
-      reviewRequest={reviewRequest}
     />
   );
 }

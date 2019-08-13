@@ -1,6 +1,8 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 
 import Submit from './Submit';
 import Submitted from './Submitted';
@@ -11,15 +13,46 @@ import ErrorSnackBar from '../Commons/ErrorSnackBar';
 import { feedbackStyle } from './FeedbackStyled';
 
 function FeedbackDisplay(props) {
-  const { productId, isSubmitted, openSnackBar, setOpenSnackBar } = props;
-  const { rootStyle } = feedbackStyle();
+  const {
+    productInformation,
+    isSubmitted,
+    openSnackBar,
+    setOpenSnackBar,
+  } = props;
+  const { rootStyle, imageStyle } = feedbackStyle();
+  const {
+    productName,
+    productDescription,
+    sellerName,
+    productImage,
+  } = productInformation;
+
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <>
       <InnerHeader isFeedBack />
-      <Grid container justify="flex-start" className={rootStyle}>
-        <Grid item xs={12}>
-          <Typography variant="h3">{productId}</Typography>
+      <Grid container spacing={2} justify="flex-start" className={rootStyle}>
+        <Grid container item xs={12} spacing={4}>
+          <Grid
+            item
+            justify={matches ? 'flex-start' : 'center'}
+            container
+            alignItems="center"
+            xs={12}
+            sm={2}
+          >
+            <img src={productImage} alt={productName} className={imageStyle} />
+          </Grid>
+          <Grid item xs={12} sm={10}>
+            <Grid item xs={12}>
+              <Typography variant="h4">{`${productName} from ${sellerName}`}</Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant="h6">{productDescription}</Typography>
+            </Grid>
+          </Grid>
         </Grid>
         <Grid item xs={12}>
           {isSubmitted ? <Submitted {...props} /> : <Submit {...props} />}

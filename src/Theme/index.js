@@ -22,7 +22,7 @@ export const appTheme = createMuiTheme({
   overrides: {
     MuiButton: {
       text: {
-        background: 'linear-gradient(-45deg, #22f9c7 0%, #06d5e8 100%)',
+        background: '#06d5e8',
         boxShadow: '0 3px 5px 2px rgba(33, 203, 243, .3)',
         borderBottom: '1px solid #e5eaed',
         borderRadius: '100px',
