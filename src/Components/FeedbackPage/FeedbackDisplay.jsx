@@ -33,8 +33,8 @@ function FeedbackDisplay(props) {
   return (
     <>
       <InnerHeader isFeedBack />
-      <Grid container spacing={2} justify="flex-start" className={rootStyle}>
-        <Grid container item xs={12} spacing={4}>
+      <Grid container justify="flex-start">
+        <Grid container spacing={4} item xs={12} className={rootStyle}>
           <Grid
             item
             justify={matches ? 'flex-start' : 'center'}
@@ -54,7 +54,7 @@ function FeedbackDisplay(props) {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={12}>
+        <Grid container item>
           {isSubmitted ? <Submitted {...props} /> : <Submit {...props} />}
         </Grid>
       </Grid>

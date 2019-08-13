@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/styles';
 
 export const feedbackStyle = makeStyles(theme => ({
   rootStyle: {
-    margin: '10px',
+    margin: '0',
   },
   buttonStyle: {
     marginTop: '1.5rem',
@@ -11,18 +11,12 @@ export const feedbackStyle = makeStyles(theme => ({
     width: '90%',
   },
   submittedStyle: {
-    display: 'flex',
-    height: '50vh',
-    flexDirection: 'column ',
+    height: '30vh',
+    flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
-    texAlight: 'center',
   },
-  thanksStyle: {
-    marginBottom: '5rem',
-  },
-  h4ThanksStyle: {
-    marginBottom: '1rem',
+  submitStyle: {
+    padding: '1rem',
   },
   imageStyle: {
     boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .3)',
