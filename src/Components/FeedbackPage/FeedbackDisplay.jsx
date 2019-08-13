@@ -25,7 +25,11 @@ function FeedbackDisplay(props) {
           {isSubmitted ? <Submitted {...props} /> : <Submit {...props} />}
         </Grid>
       </Grid>
-      <ErrorSnackBar open={openSnackBar} setOpen={setOpenSnackBar} />
+      <ErrorSnackBar
+        open={openSnackBar}
+        setOpen={setOpenSnackBar}
+        message={'Please add a comment or suggestion'}
+      />
     </>
   );
 }

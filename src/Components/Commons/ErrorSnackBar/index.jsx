@@ -58,7 +58,7 @@ function MySnackbarContentWrapper(props) {
   );
 }
 
-export default function ErrorSnackBar({ open, setOpen }) {
+export default function ErrorSnackBar({ open, setOpen, message }) {
   function handleClose(event, reason) {
     if (reason === 'clickaway') {
       return;
@@ -80,7 +80,7 @@ export default function ErrorSnackBar({ open, setOpen }) {
       <MySnackbarContentWrapper
         onClose={handleClose}
         variant="error"
-        message="Please add a comment or suggestion"
+        message={message}
       />
     </Snackbar>
   );

@@ -8,7 +8,7 @@ import FeedbackDisplay from './FeedbackDisplay';
 
 function FeedbackContainer() {
   const { match } = useReactRouter();
-  const { id } = match.params;
+  const { productId } = match.params;
   const [createReview, { error }] = useMutation(CREATE_REVIEW_MUTATION);
 
   const [ratingValue, setRatingValue] = useState(3);
@@ -51,7 +51,7 @@ function FeedbackContainer() {
 
   return (
     <FeedbackDisplay
-      productId={id}
+      productId={productId}
       ratingValue={ratingValue}
       handleSetRatingValue={handleSetRatingValue}
       comment={comment}

@@ -27,7 +27,7 @@ function ApolloWrapper() {
   );
 }
 
-function ErrorBoundry() {
+function ErrorBoundaryWrapper() {
   return (
     <ErrorBoundary>
       <ApolloWrapper />
@@ -35,4 +35,4 @@ function ErrorBoundry() {
   );
 }
 
-export default ErrorBoundry;
+export default ErrorBoundaryWrapper;
