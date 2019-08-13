@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import InnerContainerDisplay from './InnerContainerDisplay';
 
 function InnerContainerContainer() {
-  const [tabValue, setTabValue] = React.useState(0);
+  const [tabValue, setTabValue] = useState(0);
 
   function handleTabChange(event, newValue) {
     setTabValue(newValue);
