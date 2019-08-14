@@ -44,7 +44,7 @@ function FeedbackContainer() {
         variables: {
           data: {
             text: comment,
-            source: 'App FE',
+            source: reviewRequest.targetEmail,
             rating: parseFloat(ratingValue),
           },
         },
