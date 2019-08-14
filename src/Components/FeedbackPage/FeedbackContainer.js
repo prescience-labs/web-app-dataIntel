@@ -3,7 +3,7 @@ import { useMutation, useQuery } from '@apollo/react-hooks';
 import useReactRouter from 'use-react-router';
 
 import { CREATE_REVIEW_MUTATION } from '../../GraphQl/Mutations';
-import { A_REVIEWS_REQUEST_QUERY } from '../../GraphQl/Queries';
+import { GET_REVIEW_REQUEST_QUERY } from '../../GraphQl/Queries';
 
 import FeedbackDisplay from './FeedbackDisplay';
 
@@ -15,7 +15,7 @@ function FeedbackContainer() {
   const {
     data: { reviewRequest },
     loading,
-  } = useQuery(A_REVIEWS_REQUEST_QUERY, {
+  } = useQuery(GET_REVIEW_REQUEST_QUERY, {
     variables: { uuid: productId },
   });
 
@@ -32,7 +32,7 @@ function FeedbackContainer() {
     setRatingValue(rating);
   }
 
-  function goToShopWeb() {
+  function goToWebShop() {
     window
       .open('https://www.kooding.com/hyalu-serum-veil/p/164156', '_self')
       .close();
@@ -67,7 +67,7 @@ function FeedbackContainer() {
       comment={comment}
       handleSetComment={handleSetComment}
       productInformation={reviewRequest}
-      goToShopWeb={goToShopWeb}
+      goToWebShop={goToWebShop}
       isSubmitted={submitted}
       handleSetSubmitted={handleSetSubmitted}
       openSnackBar={openSnackBar}

@@ -11,7 +11,7 @@ const variantIcon = {
   error: ErrorIcon,
 };
 
-const useStyles1 = makeStyles(theme => ({
+const useSnackBarStyle = makeStyles(theme => ({
   error: {
     backgroundColor: theme.palette.error.dark,
   },
@@ -22,14 +22,15 @@ const useStyles1 = makeStyles(theme => ({
     opacity: 0.9,
     marginRight: theme.spacing(1),
   },
-  message: {
+  messageStyle: {
     display: 'flex',
     alignItems: 'center',
   },
 }));
 
-function MySnackbarContentWrapper(props) {
-  const classes = useStyles1();
+function SnackbarContentWrapper(props) {
+  const classes = useSnackBarStyle();
+  const { icon, messageStyle, iconVariant } = classes;
   const { className, message, onClose, variant, ...other } = props;
   const Icon = variantIcon[variant];
 
@@ -38,8 +39,8 @@ function MySnackbarContentWrapper(props) {
       className={clsx(classes[variant], className)}
       aria-describedby="client-snackbar-error"
       message={
-        <span id="client-snackbar-error" className={classes.message}>
-          <Icon className={clsx(classes.icon, classes.iconVariant)} />
+        <span id="client-snackbar-error" className={messageStyle}>
+          <Icon className={clsx(icon, iconVariant)} />
           {message}
         </span>
       }
@@ -50,7 +51,7 @@ function MySnackbarContentWrapper(props) {
           color="inherit"
           onClick={onClose}
         >
-          <CloseIcon className={classes.icon} />
+          <CloseIcon className={icon} />
         </IconButton>,
       ]}
       {...other}
@@ -77,7 +78,7 @@ export default function ErrorSnackBar({ open, setOpen, message }) {
       autoHideDuration={6000}
       onClose={handleClose}
     >
-      <MySnackbarContentWrapper
+      <SnackbarContentWrapper
         onClose={handleClose}
         variant="error"
         message={message}

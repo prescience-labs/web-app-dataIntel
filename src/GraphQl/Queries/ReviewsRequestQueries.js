@@ -17,7 +17,7 @@ export const ReviewRequest = {
   },
 };
 
-export const A_REVIEWS_REQUEST_QUERY = gql`
+export const GET_REVIEW_REQUEST_QUERY = gql`
   query requestReview($uuid: ID!) {
     reviewRequest(uuid: $uuid) {
       ...ReviewRequestProps

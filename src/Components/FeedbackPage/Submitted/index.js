@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 
 import { feedbackStyle } from '../FeedbackStyled';
 
-function Submitted({ productInformation, goToShopWeb }) {
+function Submitted({ productInformation, goToWebShop }) {
   const { submittedStyle } = feedbackStyle();
   const { sellerName } = productInformation;
 
@@ -20,7 +20,9 @@ function Submitted({ productInformation, goToShopWeb }) {
         </Typography>
       </Grid>
       <Grid item>
-        <Button onClick={goToShopWeb}>{`Shop ${sellerName}`}</Button>
+        <Button
+          onClick={goToWebShop}
+        >{`See more items from ${sellerName}`}</Button>
       </Grid>
     </Grid>
   );

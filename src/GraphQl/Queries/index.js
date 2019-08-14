@@ -1,2 +1,2 @@
 export { ALL_REVIEWS_QUERY } from './ReviewsQueries';
-export { A_REVIEWS_REQUEST_QUERY } from './ReviewsRequestQueries';
+export { GET_REVIEW_REQUEST_QUERY } from './ReviewsRequestQueries';
