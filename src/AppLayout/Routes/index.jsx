@@ -9,7 +9,7 @@ const Routs = withRouter(({ location }) => (
   <Switch location={location}>
     <Route exact path="/" component={LandingPage} />
     <Route path="/overview" component={InnerContainer} />
-    <Route path="/feedback/:id" component={FeedbackPage} />
+    <Route path="/feedback/:productId" component={FeedbackPage} />
   </Switch>
 ));
 

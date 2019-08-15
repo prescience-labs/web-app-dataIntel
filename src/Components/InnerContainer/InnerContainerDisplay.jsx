@@ -36,13 +36,7 @@ function a11yProps(index) {
   };
 }
 
-function InnerContainerDisplay() {
-  const [value, setValue] = React.useState(0);
-
-  function handleChange(event, newValue) {
-    setValue(newValue);
-  }
-
+function InnerContainerDisplay({ tabValue, handleTabChange }) {
   const { rootStyle, tabsStyle } = innerContainerStyle();
 
   return (
@@ -52,8 +46,8 @@ function InnerContainerDisplay() {
         <TabPanel>
           <AppBar position="static" className={rootStyle}>
             <Tabs
-              value={value}
-              onChange={handleChange}
+              value={tabValue}
+              onChange={handleTabChange}
               aria-label="inner app choicer"
               indicatorColor="secondary"
               className={tabsStyle}
@@ -62,10 +56,10 @@ function InnerContainerDisplay() {
               <Tab label="Insights" {...a11yProps(1)} />
             </Tabs>
           </AppBar>
-          <TabPanel value={value} index={0}>
+          <TabPanel value={tabValue} index={0}>
             <Overview />
           </TabPanel>
-          <TabPanel value={value} index={1}>
+          <TabPanel value={tabValue} index={1}>
             <Insights />
           </TabPanel>
         </TabPanel>

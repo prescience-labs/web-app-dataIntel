@@ -12,6 +12,7 @@ class ErrorBoundary extends PureComponent {
       error,
       errorInfo,
     });
+    throw new Error(error);
   }
 
   render() {

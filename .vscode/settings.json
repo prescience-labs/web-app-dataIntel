@@ -6,8 +6,10 @@
     "Checkboxes",
     "Formik",
     "Helveltica",
+    "Snackbar",
     "Snackbars",
     "aled",
+    "clsx",
     "subheader"
   ],
   "files.autoSave": "onFocusChange",
