@@ -5,21 +5,24 @@ import Grid from '@material-ui/core/Grid';
 
 import { feedbackStyle } from '../FeedbackStyled';
 
-function Submitted({ storeName, goToShopWeb }) {
-  const { submittedStyle, thanksStyle, h4ThanksStyle } = feedbackStyle();
+function Submitted({ productInformation, goToWebShop }) {
+  const { submittedStyle } = feedbackStyle();
+  const { sellerName } = productInformation;
 
   return (
-    <Grid container className={submittedStyle}>
-      <Grid item className={thanksStyle}>
-        <Typography variant="h4" align="center" className={h4ThanksStyle}>
-          Thank you for your feedback
-        </Typography>
-        <Typography variant="h5" align="center">
+    <Grid container spacing={2} justify="center" className={submittedStyle}>
+      <Grid item>
+        <Typography variant="h5">Thank you for your feedback</Typography>
+      </Grid>
+      <Grid item>
+        <Typography variant="p">
           We hope to serve you again in the near future.
         </Typography>
       </Grid>
       <Grid item>
-        <Button onClick={goToShopWeb}>{`Shop ${storeName}`}</Button>
+        <Button
+          onClick={goToWebShop}
+        >{`See more items from ${sellerName}`}</Button>
       </Grid>
     </Grid>
   );

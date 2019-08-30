@@ -2,26 +2,27 @@ import { makeStyles } from '@material-ui/styles';
 
 export const feedbackStyle = makeStyles(theme => ({
   rootStyle: {
-    margin: '10px',
+    margin: '0',
   },
   buttonStyle: {
-    marginTop: '4rem',
+    marginTop: '1.5rem',
   },
   textAreaStyle: {
     width: '90%',
   },
   submittedStyle: {
-    display: 'flex',
-    height: '50vh',
-    flexDirection: 'column ',
+    height: '30vh',
+    flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
-    texAlight: 'center',
   },
-  thanksStyle: {
-    marginBottom: '5rem',
+  submitStyle: {
+    padding: '1rem',
   },
-  h4ThanksStyle: {
-    marginBottom: '1rem',
+  imageStyle: {
+    boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .3)',
+  },
+  fieldsetStyle: {
+    padding: '0',
+    margin: '0',
   },
 }));

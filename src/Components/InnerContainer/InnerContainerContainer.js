@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import InnerContainerDisplay from './InnerContainerDisplay';
 
 function InnerContainerContainer() {
-  return <InnerContainerDisplay />;
+  const [tabValue, setTabValue] = useState(0);
+
+  function handleTabChange(event, newValue) {
+    setTabValue(newValue);
+  }
+
+  return (
+    <InnerContainerDisplay
+      tabValue={tabValue}
+      handleTabChange={handleTabChange}
+    />
+  );
 }
 
 export default InnerContainerContainer;

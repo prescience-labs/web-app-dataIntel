@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, useQuery } from '@apollo/react-hooks';
 import useReactRouter from 'use-react-router';
 
 import { CREATE_REVIEW_MUTATION } from '../../GraphQl/Mutations';
+import { GET_REVIEW_REQUEST_QUERY } from '../../GraphQl/Queries';
 
 import FeedbackDisplay from './FeedbackDisplay';
 
 function FeedbackContainer() {
   const { match } = useReactRouter();
-  const { id } = match.params;
+  const { productId } = match.params;
   const [createReview, { error }] = useMutation(CREATE_REVIEW_MUTATION);
+
+  const {
+    data: { reviewRequest },
+    loading,
+  } = useQuery(GET_REVIEW_REQUEST_QUERY, {
+    variables: { uuid: productId },
+  });
 
   const [ratingValue, setRatingValue] = useState(3);
   const [comment, setComment] = useState('');
@@ -24,7 +32,7 @@ function FeedbackContainer() {
     setRatingValue(rating);
   }
 
-  function goToShopWeb() {
+  function goToWebShop() {
     window
       .open('https://www.kooding.com/hyalu-serum-veil/p/164156', '_self')
       .close();
@@ -36,7 +44,7 @@ function FeedbackContainer() {
         variables: {
           data: {
             text: comment,
-            source: 'App FE',
+            source: reviewRequest.targetEmail,
             rating: parseFloat(ratingValue),
           },
         },
@@ -49,15 +57,17 @@ function FeedbackContainer() {
     }
   }
 
+  if (loading) return null;
+
   return (
     <FeedbackDisplay
-      productId={id}
+      productId={productId}
       ratingValue={ratingValue}
       handleSetRatingValue={handleSetRatingValue}
       comment={comment}
       handleSetComment={handleSetComment}
-      storeName={'Hyper Blouse'}
-      goToShopWeb={goToShopWeb}
+      productInformation={reviewRequest}
+      goToWebShop={goToWebShop}
       isSubmitted={submitted}
       handleSetSubmitted={handleSetSubmitted}
       openSnackBar={openSnackBar}
