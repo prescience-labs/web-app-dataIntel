@@ -1,19 +1,34 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import axios from 'axios';
 import useReactRouter from 'use-react-router';
+
+import { UserContext } from '../../Context/UserContext';
 
 import OverviewDisplay from './OverviewDisplay';
 
 function OverviewContainer() {
   const { match } = useReactRouter();
-  const { token, id } = match.params;
+  const { token } = match.params;
 
-  if (token && token !== 'false') {
+  const { handleSetActiveUser } = useContext(UserContext);
+
+  async function verifyToken() {
+    try {
+      const verifyTokenResponse = await axios.post(
+        process.env.REACT_APP_AUTH_TOKEN,
+        { token },
+      );
+      const activeUserResponse = await axios.get(
+        `${process.env.REACT_APP_AUTH_USER}${verifyTokenResponse.data.user_id}`,
+      );
+
+      handleSetActiveUser(activeUserResponse.data);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
-  if (id) {
-  }
-
-  return <OverviewDisplay />;
+  return <OverviewDisplay verifyToken={verifyToken} />;
 }
 
 export default OverviewContainer;

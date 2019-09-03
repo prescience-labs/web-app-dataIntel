@@ -7,14 +7,24 @@ import ErrorBoundary from './Components/Commons/ErrorBoundary';
 import { appTheme } from './Theme';
 import AppLayout from './AppLayout';
 
+import { UserContextProvider } from './Context/UserContext';
+
 const client = new ApolloClient({
   uri: 'https://data-intel-reviews.herokuapp.com/graphql',
 });
 
+function ContextWrapper() {
+  return (
+    <UserContextProvider>
+      <AppLayout />
+    </UserContextProvider>
+  );
+}
+
 function ThemeWrapper() {
   return (
     <ThemeProvider theme={appTheme}>
-      <AppLayout />
+      <ContextWrapper />
     </ThemeProvider>
   );
 }

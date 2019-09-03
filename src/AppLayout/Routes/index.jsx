@@ -8,7 +8,7 @@ import FeedbackPage from '../../Components/FeedbackPage';
 const Routs = withRouter(({ location }) => (
   <Switch location={location}>
     <Route exact path="/" component={LandingPage} />
-    <Route path="/overview/:token?/:id?" component={InnerContainer} />
+    <Route path="/overview/:token" component={InnerContainer} />
     <Route path="/feedback/:productId" component={FeedbackPage} />
   </Switch>
 ));
