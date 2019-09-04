@@ -18,17 +18,23 @@ function OverviewContainer() {
         process.env.REACT_APP_AUTH_TOKEN,
         { token },
       );
+
       const activeUserResponse = await axios.get(
         `${process.env.REACT_APP_AUTH_USER}${verifyTokenResponse.data.user_id}`,
       );
 
       handleSetActiveUser(activeUserResponse.data);
     } catch (error) {
-      console.error(error);
+      throw new Error();
     }
   }
 
-  return <OverviewDisplay verifyToken={verifyToken} />;
+  useEffect(() => {
+    verifyToken();
+    //eslint-disable-next-line
+  }, []);
+
+  return <OverviewDisplay />;
 }
 
 export default OverviewContainer;
