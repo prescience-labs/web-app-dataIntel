@@ -47,11 +47,7 @@ const rows = [
   createData('ID 202', 'Blouse', 2, 'Good', '02/08/2019'),
 ];
 
-function makeAnalysis(review) {
-  alert(review);
-}
-
-function OverviewTable() {
+function OverviewTable({ dialogProps }) {
   const classes = useStyles();
 
   return (
@@ -91,7 +87,7 @@ function OverviewTable() {
                 <IconButton
                   color="primary"
                   aria-label="analysis"
-                  onClick={() => makeAnalysis(row.review)}
+                  onClick={() => dialogProps.handleOpen(row.review)}
                 >
                   <Nfc />
                 </IconButton>

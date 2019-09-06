@@ -35,12 +35,29 @@ function OverviewContainer() {
   }, []);
 
   const [shouldOpenDialog, setShouldOpenDialog] = useState(false);
+  const [reviewText, setReviewText] = useState(false);
 
-  const handleClose =()=>{
-    setShouldOpenDialog(false)
-  }
+  const handleDialogClose = () => {
+    setShouldOpenDialog(false);
+  };
 
-  return <OverviewDisplay />;
+  const handleDialogOpen = text => {
+    handleSetReviewText(text);
+    setShouldOpenDialog(true);
+  };
+
+  const handleSetReviewText = text => {
+    setReviewText(text);
+  };
+
+  const dialogProps = {
+    open: shouldOpenDialog,
+    handleClose: handleDialogClose,
+    handleOpen: handleDialogOpen,
+    reviewText,
+  };
+
+  return <OverviewDisplay dialogProps={dialogProps} />;
 }
 
 export default OverviewContainer;

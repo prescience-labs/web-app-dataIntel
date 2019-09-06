@@ -5,9 +5,11 @@ import Grid from '@material-ui/core/Grid';
 import InfoCard from './InfoCard';
 import OverviewTable from './OverviewTable';
 
-function OverviewDisplay() {
+import ReviewDialog from '../Commons/ReviewDialog';
+
+function OverviewDisplay({ dialogProps }) {
   return (
-    <div>
+    <>
       <Grid container justify="center">
         <Grid item>
           <InfoCard title="500 reviews send" />
@@ -19,8 +21,13 @@ function OverviewDisplay() {
           <InfoCard title="350 +/ 150 -" />
         </Grid>
       </Grid>
-      <OverviewTable />
-    </div>
+      <OverviewTable dialogProps={dialogProps} />
+      <ReviewDialog
+        open={dialogProps.open}
+        handleClose={dialogProps.handleClose}
+        reviewText={dialogProps.reviewText}
+      />
+    </>
   );
 }
 

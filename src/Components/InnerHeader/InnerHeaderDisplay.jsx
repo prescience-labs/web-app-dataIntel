@@ -2,7 +2,6 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -11,7 +10,6 @@ import Menu from '@material-ui/core/Menu';
 import CssBaseline from '@material-ui/core/CssBaseline/CssBaseline';
 
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import Nfc from '@material-ui/icons/Nfc';
 import Settings from '@material-ui/icons/Settings';
 import ExitToApp from '@material-ui/icons/ExitToApp';
 
@@ -43,7 +41,7 @@ function InnerHeaderDisplay({
       <CssBaseline />
       <AppBar position="static">
         <Toolbar>
-          <img  className={typographyStyle} src={logo} alt="data intel logo"/>
+          <img className={typographyStyle} src={logo} alt="data intel logo" />
           {!isFeedBack && (
             <div>
               <IconButton
