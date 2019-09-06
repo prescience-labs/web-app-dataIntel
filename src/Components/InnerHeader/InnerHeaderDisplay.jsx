@@ -16,6 +16,7 @@ import Settings from '@material-ui/icons/Settings';
 import ExitToApp from '@material-ui/icons/ExitToApp';
 
 import { innerHeaderStyle } from './InnerHeaderStyle';
+import logo from '../../Assets/img/logo-dark@3x.png';
 
 const StyledMenuItem = withStyles(theme => ({
   root: {
@@ -42,12 +43,7 @@ function InnerHeaderDisplay({
       <CssBaseline />
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" color="inherit" aria-label="menu">
-            <Nfc />
-          </IconButton>
-          <Typography variant="h6" className={typographyStyle}>
-            DataIntel
-          </Typography>
+          <img  className={typographyStyle} src={logo} alt="data intel logo"/>
           {!isFeedBack && (
             <div>
               <IconButton
