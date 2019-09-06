@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import useReactRouter from 'use-react-router';
 
@@ -33,6 +33,12 @@ function OverviewContainer() {
     verifyToken();
     //eslint-disable-next-line
   }, []);
+
+  const [shouldOpenDialog, setShouldOpenDialog] = useState(false);
+
+  const handleClose =()=>{
+    setShouldOpenDialog(false)
+  }
 
   return <OverviewDisplay />;
 }

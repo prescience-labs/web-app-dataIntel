@@ -16,7 +16,6 @@
   "editor.formatOnSave": true,
   "javascript.preferences.quoteStyle": "single",
   "files.eol": "\n",
-  "prettier.eslintIntegration": true,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "all",
   "prettier.jsxBracketSameLine": false,
