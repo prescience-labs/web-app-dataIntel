@@ -39,12 +39,30 @@ const rows = [
     'ID 356',
     'Shoes',
     5,
-    'For responsive layouts; use the max-width CSS property to specify the effective minimum width of the column, or just use max-width: 0; for unlimited flexibility. Also, the containing table will need a specific width, typically width: 100%;, and the columns will typically have their width set as percentage of the total width',
-    '05/08/2019',
+    'The staff is always happy and helpful',
+    '03/08/2019',
   ),
-  createData('ID 758', 'Dress', 4, 'Good kiri', '03/08/2019'),
-  createData('ID 965', 'T-shirt', 3, 'Good', '01/08/2019'),
-  createData('ID 202', 'Blouse', 2, 'Good', '02/08/2019'),
+  createData(
+    'ID 758',
+    'Dress',
+    4,
+    'I bought these boots as a combination motorcycle boot/something I can wear in the office without looking like a bum.',
+    '03/08/2019',
+  ),
+  createData(
+    'ID 965',
+    'T-shirt',
+    3,
+    'I like the style of the boots, and the fit and all that, but after around a month of light wear and use, the material on the toe has started to noticeably rip.',
+    '01/08/2019',
+  ),
+  createData(
+    'ID 202',
+    'Blouse',
+    2,
+    "I didn't expect much when ordering this boot. I needed something that looked a little better then a ratty beat up pair of work boots when visiting a job site with homeowners. I don't think you can you can tell by looking at them that they aren't real leather. The workmanship put into the shoe seems to be decent. I think they Ron about a half size big but read other reviews before taking that into account. I'm not sure what size I ordered and don't feel like checking. I'm happy with the boot and can be worn Al casually or worn to work in a light construction field environment. Overall a good looking boot for the price.",
+    '02/08/2019',
+  ),
 ];
 
 function OverviewTable({ dialogProps }) {
@@ -87,7 +105,13 @@ function OverviewTable({ dialogProps }) {
                 <IconButton
                   color="primary"
                   aria-label="analysis"
-                  onClick={() => dialogProps.handleOpen(row.review)}
+                  onClick={() =>
+                    dialogProps.handleOpen(
+                      row.review,
+                      row.productName,
+                      row.date,
+                    )
+                  }
                 >
                   <Nfc />
                 </IconButton>

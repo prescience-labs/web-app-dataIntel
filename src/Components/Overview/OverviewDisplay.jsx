@@ -26,6 +26,8 @@ function OverviewDisplay({ dialogProps }) {
         open={dialogProps.open}
         handleClose={dialogProps.handleClose}
         reviewText={dialogProps.reviewText}
+        productName={dialogProps.productName}
+        productDate={dialogProps.productDate}
       />
     </>
   );
